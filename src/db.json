@@ -28,18 +28,6 @@
       "experience": 4,
       "package": 15,
       "id": 1
-    },
-    {
-      "firstName": "",
-      "lastName": "",
-      "email": "",
-      "dob": "",
-      "gender": "male",
-      "education": "Diploma",
-      "company": "",
-      "experience": "",
-      "package": "",
-      "id": 2
     }
   ]
 }
