@@ -3,18 +3,19 @@
     <h1>Employee Form</h1>
 </div>
 
+<form [formGroup]="empForm" (ngSubmit)="onFormSubmit()">
 <!-- content -->
 <div mat-dialog-content class="content">
     <div class="row">
         <!-- firstname -->
         <mat-form-field appearance="outline">
             <mat-label>First Name</mat-label>
-            <input matInput type="text" placeholder="Enter Your First Name">
+            <input matInput type="text" placeholder="Enter Your First Name" formControlName="firstName">
           </mat-form-field>
           <!-- lastname -->
           <mat-form-field appearance="outline">
             <mat-label>Last Name</mat-label>
-            <input matInput type="text" placeholder="Enter your Last Name">
+            <input matInput type="text" placeholder="Enter your Last Name" formControlName="lastName">
           </mat-form-field>
     </div>
 
@@ -22,13 +23,13 @@
         <!-- email -->
         <mat-form-field appearance="outline">
             <mat-label>Email</mat-label>
-            <input matInput type="email" placeholder="Enter Your Email">
+            <input matInput type="email" placeholder="Enter Your Email" formControlName="email">
           </mat-form-field>
 
           <!-- date -->
           <mat-form-field appearance="outline">
             <mat-label>Date of birth</mat-label>
-            <input matInput [matDatepicker]="picker">
+            <input matInput [matDatepicker]="picker" formControlName="dob">
             <mat-hint>MM/DD/YYYY</mat-hint>
             <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
@@ -37,7 +38,7 @@
     </div>
 
     <div class="row">
-        <mat-radio-group aria-label="Select an option">
+        <mat-radio-group aria-label="Select an option" formControlName="gender">
             <mat-label><b>Gender</b></mat-label>
             <mat-radio-button value="male">Male</mat-radio-button>
             <mat-radio-button value="female">Female</mat-radio-button>
@@ -49,7 +50,7 @@
         <!-- education -->
         <mat-form-field appearance="outline">
             <mat-label>Education</mat-label>
-            <mat-select>
+            <mat-select formControlName="education">
               <mat-option *ngFor="let val of education" [value]="val">
                 <!-- show on the UI -->
                 {{val}}
@@ -60,7 +61,7 @@
           <!-- company -->
           <mat-form-field appearance="outline">
             <mat-label>Company</mat-label>
-            <input matInput placeholder="Microsoft">
+            <input matInput placeholder="Microsoft" formControlName="company">
           </mat-form-field>
     </div>
 
@@ -68,13 +69,13 @@
         <!-- experience -->
         <mat-form-field appearance="outline">
             <mat-label>Experience</mat-label>
-            <input matInput placeholder="Ex. 4" type="number">
+            <input matInput placeholder="Ex. 4" type="number" formControlName="experience">
         </mat-form-field>
 
         <!-- package -->
         <mat-form-field appearance="outline">
             <mat-label>Package</mat-label>
-            <input matInput placeholder="Ex. 12" type="number">
+            <input matInput placeholder="Ex. 12" type="number" formControlName="package">
             <mat-hint>In kshs</mat-hint>
         </mat-form-field>
     </div>
@@ -83,5 +84,6 @@
 <!-- action -->
 <div mat-dialog-action class="action">
     <button mat-raised-button>Cancel</button>
-    <button mat-raised-button color="primary">Save</button>
+    <button mat-raised-button color="primary" type="submit">Save</button>
 </div>
+</form>
